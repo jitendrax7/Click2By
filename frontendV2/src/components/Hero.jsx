@@ -120,7 +120,7 @@ const Hero = () => {
               {/* Main hero image area */}
               <div className="relative rounded-2xl overflow-hidden aspect-[4/5] bg-surface-card border border-surface-border">
                 <img
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80"
+                  src="https://res.cloudinary.com/dd8dfue8j/image/upload/v1776585244/heroimg_j1myfc.png"
                   alt="Click2Buy Fashion Hero"
                   className="w-full h-full object-cover"
                   loading="eager"
