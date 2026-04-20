@@ -180,7 +180,7 @@ const Collection = () => {
       <div className="container-custom pt-5 pb-6 sm:pt-7 md:pt-8 md:pb-8">
 
         {/* ── Toolbar ── */}
-        <div className="mb-5 mt-5 space-y-3">
+        <div className="mb-5 mt-5 md:mt-0 space-y-3">
           {/* Row 1: filter toggle (left) + sort (right) */}
           <div className="flex items-center justify-between gap-3">
             <button
