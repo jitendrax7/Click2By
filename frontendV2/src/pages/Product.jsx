@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { ShopContext } from '../context/Shopcontext'
 import RelatedProducts from '../components/ReletedProducts'
-import { toast } from 'react-toastify'
+import { toast } from '../components/Notify'
 
 const StarRating = ({ rating = 4, count = 122 }) => (
   <div className="flex items-center gap-2">
@@ -27,6 +27,11 @@ const Product = () => {
   const [size, setSize] = useState('')
   const [activeTab, setActiveTab] = useState('Description')
   const [adding, setAdding] = useState(false)
+
+  // Scroll to top whenever the product changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [productId])
 
   useEffect(() => {
     const found = products.find((item) => item._id === productId)

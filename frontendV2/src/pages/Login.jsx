@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { ShopContext } from '../context/Shopcontext'
 import axios from 'axios'
-import { toast } from 'react-toastify'
+import { toast } from '../components/Notify'
 
 const Login = () => {
   const [name, setName] = useState('')

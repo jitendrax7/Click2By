@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import NewsletterBox from '../components/NewsletterBox'
-import { toast } from 'react-toastify'
+import { toast } from '../components/Notify'
 
 const contactInfo = [
   {

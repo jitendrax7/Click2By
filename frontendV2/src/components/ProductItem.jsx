@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ShopContext } from '../context/Shopcontext'
 
 const HeartIcon = ({ filled }) => (
@@ -16,12 +16,19 @@ const EyeIcon = () => (
 
 const ProductItem = ({ id, image, name, price, category }) => {
   const { currency, toggleWishlist, isWishlisted } = useContext(ShopContext)
+  const navigate = useNavigate()
   const wishlisted = isWishlisted(id)
 
   const handleWishlist = (e) => {
     e.preventDefault()
     e.stopPropagation()
     toggleWishlist(id)
+  }
+
+  const handleQuickView = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    navigate(`/product/${id}`)
   }
 
   return (
@@ -49,14 +56,13 @@ const ProductItem = ({ id, image, name, price, category }) => {
             >
               <HeartIcon filled={wishlisted} />
             </button>
-            <Link
-              to={`/product/${id}`}
-              onClick={(e) => e.stopPropagation()}
+            <button
+              onClick={handleQuickView}
               className="w-9 h-9 rounded-full bg-dark/80 text-text-muted hover:bg-primary hover:text-dark flex items-center justify-center transition-all duration-200"
               aria-label="Quick view"
             >
               <EyeIcon />
-            </Link>
+            </button>
           </div>
 
           {/* Category badge */}

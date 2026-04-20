@@ -3,6 +3,7 @@ import { ShopContext } from '../context/Shopcontext'
 import { Link } from 'react-router-dom'
 import CartTotal from '../components/CartTotal'
 import Popup from '../components/Popup'
+import { toast } from '../components/Notify'
 
 const TrashIcon = () => (
   <svg width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -11,7 +12,7 @@ const TrashIcon = () => (
 )
 
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity, navigate } = useContext(ShopContext)
+  const { products, currency, cartItems, updateQuantity, navigate, token } = useContext(ShopContext)
   const [onClose, setOnClose] = useState(false)
   const [cartData, setCartData] = useState([])
 
@@ -148,7 +149,11 @@ const Cart = () => {
 
                 <button
                   id="cart-checkout-btn"
-                  onClick={() => cartData.length > 0 ? navigate('/place-order') : setOnClose(true)}
+                  onClick={() => {
+                    if (cartData.length === 0) { setOnClose(true); return }
+                    if (!token) { toast.error('Please sign in to proceed to checkout'); navigate('/login'); return }
+                    navigate('/place-order')
+                  }}
                   className="btn-primary w-full justify-center text-base"
                 >
                   Proceed to Checkout
