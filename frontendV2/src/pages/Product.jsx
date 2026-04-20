@@ -112,12 +112,12 @@ const Product = () => {
             </div>
 
             {/* Main Image */}
-            <div className="flex-1 relative group">
-              <div className="aspect-square rounded-2xl overflow-hidden bg-surface-card">
+            <div className="flex-1 relative group w-full flex items-start">
+              <div className="w-full rounded-2xl overflow-hidden bg-surface-card flex items-center justify-center">
                 <img
                   src={image}
                   alt={productData.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-auto block transition-transform duration-500 group-hover:scale-105"
                 />
               </div>
               {/* Wishlist button on image */}
